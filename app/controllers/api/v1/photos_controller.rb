@@ -1,5 +1,9 @@
 class Api::V1::PhotosController < ApplicationController
-  before_action :find_photo, only: [:destroy]
+  before_action :find_photo, only: [:show, :destroy]
+  
+  def show
+    render json: { photo: PhotoSerializer.new(@photo) }, status: :ok
+  end
   
   def create
     @photo = Photo.create(photo_params)
