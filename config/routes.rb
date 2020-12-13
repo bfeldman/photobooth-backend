@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       resources :photos, only: [:show, :create, :update, :destroy]
+      get '/users/:username', to: 'users#find_user'
     end
   end
 end
