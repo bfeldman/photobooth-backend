@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/profile', to: 'users#profile'
       resources :photos, only: [:show, :create, :update, :destroy]
       get '/users/:username', to: 'users#find_user'
+      resources :comments, only: [:create, :destroy]
     end
   end
 end
