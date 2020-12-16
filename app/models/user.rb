@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_many :photos
   accepts_nested_attributes_for :photos
   validates :username, uniqueness: {case_sensitive: false}
+  validates :email_address, uniqueness: {case_sensitive: false}
 end
