@@ -15,6 +15,11 @@ class Api::V1::UsersController < ApplicationController
     end
   end
   
+  def update
+    @user.update(user_params)
+    render json: { user: UserSerializer.new(@user) }, status: :ok
+  end
+  
   def find_user
     @username = params[:username]
     if @username
