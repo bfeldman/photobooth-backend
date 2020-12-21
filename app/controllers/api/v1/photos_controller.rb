@@ -1,5 +1,6 @@
 class Api::V1::PhotosController < ApplicationController
   before_action :find_photo, only: [:show, :destroy]
+  skip_before_action :authorized, only: [:show]
   
   def show
     render json: { photo: PhotoSerializer.new(@photo) }, status: :ok
