@@ -23,9 +23,13 @@ class Api::V1::UsersController < ApplicationController
   def find_user
     @username = params[:username]
     if @username
-      found_user = User.find_by(username: @username)
+      @found_user = User.find_by(username: @username)
     end
-    render json: { user: UserSerializer.new(found_user)}, status: :ok
+    if @found_user.is_public
+      render json: { user: UserSerializer.new(@found_user)}, status: :ok
+    else
+      render json: { user: {id: @found_user.id, is_public: false} }
+    end
   end
   
 
