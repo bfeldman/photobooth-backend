@@ -5,9 +5,10 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :update]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
-      resources :photos, only: [:show, :create, :update, :destroy]
       get '/users/:username', to: 'users#find_user'
+      resources :photos, only: [:show, :create, :update, :destroy]
       resources :comments, only: [:create, :destroy]
+      resources :albums, only: [:show, :create, :update, :destroy]
     end
   end
 end
