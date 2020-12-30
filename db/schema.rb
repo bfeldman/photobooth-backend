@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_12_21_153307) do
-=======
 ActiveRecord::Schema.define(version: 2020_12_27_232338) do
->>>>>>> main
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +36,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_232338) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-<<<<<<< HEAD
-=======
   create_table "albums", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
@@ -51,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_12_27_232338) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
->>>>>>> main
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id", null: false
@@ -81,10 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_27_232338) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-<<<<<<< HEAD
-=======
   add_foreign_key "albums", "users"
->>>>>>> main
   add_foreign_key "comments", "photos", on_delete: :cascade
   add_foreign_key "comments", "users"
   add_foreign_key "photos", "users"
