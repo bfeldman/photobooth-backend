@@ -8,6 +8,8 @@ class Api::V1::PhotosController < ApplicationController
   
   def create
     @photo = Photo.create(photo_params)
+    @photo.image_file.attach(io: image_io, filename: "photo" + @photo.id.to_s + ".png")
+    
     if @photo.valid?
       render json: { photo: PhotoSerializer.new(@photo) }, status: :created
     else
@@ -23,7 +25,12 @@ class Api::V1::PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:user_id, :is_public, :base64_src, image_file: [:name, :file, :size, :type])
+    params.require(:photo).permit(:user_id, :is_public, :base64_src)
+  end
+  
+  def image_io
+    decoded_image = Base64.decode64(params[:photo][:base64_src])
+    StringIO.new(decoded_image)
   end
   
   def find_photo
