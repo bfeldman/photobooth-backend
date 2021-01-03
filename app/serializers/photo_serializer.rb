@@ -7,7 +7,7 @@ class PhotoSerializer < ActiveModel::Serializer
   end
   
   def image_file
-    rails_blob_path(object.image_file)
+    rails_blob_path(object.image_file, only_path: true)
   end
   
 end
