@@ -1,24 +1,15 @@
-# README
+# Boto Phooth
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Boto Photo is a web-based tool for capturing and editing webcam pics.
 
-Things you may want to cover:
+**[Frontend](https://github.com/bfeldman/photobooth-frontend)**: React, Redux, Konva, Semantic UI
 
-* Ruby version
+**[Backend](https://github.com/bfeldman/photobooth-backend)**: Ruby on Rails
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Features:
+- image editor with brush, sticker, tint, and meme caption tools
+- user accounts with JWT
+- photo gallery (user profile page)
+- assemble albums of specific photos
+- commenting
+- profile visibility toggling
