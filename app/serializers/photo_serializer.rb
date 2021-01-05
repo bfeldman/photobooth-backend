@@ -1,9 +1,9 @@
 class PhotoSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :is_public, :comments, :created_at, :image_file #, :base64_src
+  attributes :id, :caption, :created_at, :image_file, :is_public, :comments #, :base64_src
   
   def comments
-    ActiveModelSerializers::SerializableResource.new(object.comments,  each_serializer: CommentSerializer)
+    ActiveModelSerializers::SerializableResource.new(object.comments, each_serializer: CommentSerializer)
   end
   
   def image_file

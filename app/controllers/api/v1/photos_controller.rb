@@ -25,7 +25,7 @@ class Api::V1::PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:user_id, :is_public, :base64_src)
+    params.require(:photo).permit(:user_id, :is_public, :base64_src, :caption)
   end
   
   def image_io
